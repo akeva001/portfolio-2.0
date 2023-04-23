@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
 type Props = {};
 
 export default function Header({}: Props) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="sticky top-0 p-5 flex justify-between max-w-7xl mx-auto z-20 xl:items-center">
       <motion.div
@@ -13,7 +19,7 @@ export default function Header({}: Props) {
         transition={{ duration: 1.5 }}
         className="flex flex-row items-center"
       >
-        <div>
+        <div className="hidden md:flex md:flex-row md:items-center">
           <Link href="#about">
             <button className="headerButton">About</button>
           </Link>
@@ -27,9 +33,86 @@ export default function Header({}: Props) {
             <button className="headerButton">Projects</button>
           </Link>
         </div>
+        <button
+          className="md:hidden px-2 py-2 border border-none rounded-full uppercase tracking-widest text-sm text-gray-500 
+          transition-all hover:text-[#FFF]"
+          onClick={toggleMenu}
+          aria-label="Toggle Menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
       </motion.div>
 
-      {/* <Link href="#contact"> */}
+      {/* Mobile Menu */}
+      <motion.div
+        initial={{ y: -500, opacity: 0 }}
+        animate={{
+          y: isMenuOpen ? 0 : -500,
+          opacity: isMenuOpen ? 1 : 0,
+        }}
+        transition={{ duration: 0.5 }}
+        className={`${
+          isMenuOpen ? "flex" : "hidden"
+        } md:hidden flex-col w-full h-screen bg-[rgb(36,36,36)] fixed top-0 left-0 z-50`}
+      >
+        <button
+          className="ml-auto mt-5 mr-5 mb-2 px-2 py-2 border border-none rounded-full uppercase tracking-widest text-sm text-gray-500 
+          transition-all hover:text-[#FFF]"
+          onClick={toggleMenu}
+          aria-label="Close Menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <div className="flex flex-col items-center justify-center h-full">
+          <Link href="#about">
+            <button className="headerButton my-4" onClick={toggleMenu}>
+              About
+            </button>
+          </Link>
+          <Link href="#experience">
+            <button className="headerButton my-4" onClick={toggleMenu}>
+              Experience
+            </button>
+          </Link>
+          <Link href="#skills">
+            <button className="headerButton my-4" onClick={toggleMenu}>
+              Skills
+            </button>
+          </Link>
+          <Link href="#projects">
+            <button className="headerButton my-4" onClick={toggleMenu}>
+              Projects
+            </button>
+          </Link>
+        </div>
+      </motion.div>
+
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -46,7 +129,6 @@ export default function Header({}: Props) {
           Get In Touch
         </p>
       </motion.div>
-      {/* </Link> */}
     </header>
   );
 }
