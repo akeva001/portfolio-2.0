@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+/sanity
+
 # JetBrains IDE files
 .idea/
 

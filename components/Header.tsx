@@ -29,6 +29,7 @@ export default function Header({}: Props) {
         </div>
       </motion.div>
 
+      {/* <Link href="#contact"> */}
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -45,6 +46,7 @@ export default function Header({}: Props) {
           Get In Touch
         </p>
       </motion.div>
+      {/* </Link> */}
     </header>
   );
 }
