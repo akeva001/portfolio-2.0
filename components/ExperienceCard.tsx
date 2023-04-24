@@ -12,13 +12,13 @@ function ExperienceCard({ experience }: Props) {
   const [showDetails, setShowDetails] = useState(false);
   return (
     <article
-      className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-full
+      className="flex flex-col rounded-lg items-center justify-center space-y-7 md:space-y-10 flex-shrink-0 w-full
     md:w-[800px] xl:w-[900px] snap-center bg-[#292929] px-3 pt-7 pb-5 md:p-10 md:hover:opacity-100 md:opacity-40
     cursor-pointer transition-opacity duration-200 overflow-hidden min-h-[65vh] md:min-h-full"
     >
-      <div className="px-0 md:px-10 flex flex-col md:flex-row">
+      <div className="px-0 md:px-10 flex flex-col md:flex-row md:justify-center md:items-center">
         {!showDetails && (
-          <div className="md:w-1/2 md:mt-5">
+          <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5">
             <div className="flex justify-center md:justify-start mb-3">
               <motion.img
                 initial={{
@@ -38,7 +38,7 @@ function ExperienceCard({ experience }: Props) {
 
             <h4 className="text-3xl font-light">{experience?.jobTitle}</h4>
             <p className="font-bold text-1xl mt-1">{experience?.company}</p>
-            <div className="flex space-x-2 my-2">
+            <div className="flex flex-wrap justify-start gap-2 my-2">
               {experience.technologies?.map((technology) => (
                 <img
                   key={technology._id}
@@ -48,6 +48,7 @@ function ExperienceCard({ experience }: Props) {
                 />
               ))}
             </div>
+
             <p className="uppercase py-5 text-gray-300">
               {new Date(experience.dateStarted).toDateString()} -{" "}
               {experience.isCurrentlyWorkingHere
@@ -57,7 +58,7 @@ function ExperienceCard({ experience }: Props) {
           </div>
         )}
         <div className="justify-center items-center md:w-3/5 lg:ml-10 hidden md:flex">
-          <ul className="list-disc space-y-4 ml-5 text-md">
+          <ul className="list-disc space-y-3 ml-5 text-md">
             {experience.points.map((point, i) => (
               <li key={i}> {point}</li>
             ))}

@@ -19,7 +19,7 @@ function Projects({ projects }: Props) {
       </h3>
       <div
         className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory
-        z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#06c]/80"
+        z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#06c]/80 mt-5 md:mt-0"
       >
         {projects.map((project, i) => (
           <div
@@ -32,7 +32,7 @@ function Projects({ projects }: Props) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               src={urlFor(project?.image).url()}
-              className="md:h-60 h-52 mb-2 md:my-5"
+              className="md:h-60 h-44 mb-2 md:mb-5 md:mt-20"
               alt=""
             />
             <div className="space-y-5 px-0 md:x-10 max-w-6xl">
@@ -45,7 +45,7 @@ function Projects({ projects }: Props) {
               <div className="flex items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
                   <img
-                    className="h-10 w-10"
+                    className="h-10 w-10 rounded-full"
                     key={technology._id}
                     src={urlFor(technology.image).url()}
                     alt=""
