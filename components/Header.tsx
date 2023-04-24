@@ -92,24 +92,24 @@ export default function Header({ handleScroll }: Props) {
             />
           </svg>
         </button>
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className="flex flex-col items-center justify-center h-full mb-20">
           <Link href="#about" onClick={handleScroll}>
-            <button className="headerButton my-4" onClick={toggleMenu}>
+            <button className="headerButtonMobile my-4" onClick={toggleMenu}>
               About
             </button>
           </Link>
           <Link href="#experience" onClick={handleScroll}>
-            <button className="headerButton my-4" onClick={toggleMenu}>
+            <button className="headerButtonMobile my-4" onClick={toggleMenu}>
               Experience
             </button>
           </Link>
           <Link href="#skills" onClick={handleScroll}>
-            <button className="headerButton my-4" onClick={toggleMenu}>
+            <button className="headerButtonMobile my-4" onClick={toggleMenu}>
               Skills
             </button>
           </Link>
           <Link href="#projects" onClick={handleScroll}>
-            <button className="headerButton my-4" onClick={toggleMenu}>
+            <button className="headerButtonMobile my-4" onClick={toggleMenu}>
               Projects
             </button>
           </Link>
