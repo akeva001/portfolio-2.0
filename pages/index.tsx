@@ -26,7 +26,7 @@ const Home = ({ pageInfo, experiences, projects, skills }: Props) => {
   return (
     <div
       className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll 
-    overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80"
+    overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#06c]/80"
     >
       <Head>
         <title>Alex's Portfolio</title>
@@ -58,18 +58,18 @@ const Home = ({ pageInfo, experiences, projects, skills }: Props) => {
         <ContactMe />
       </section>
 
-      <Link href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer">
-          <div className="flex items-center justify-center">
+      <footer className="sticky bottom-5 w-full">
+        <div className="flex items-center justify-center">
+          <Link href="#hero">
             <img
-              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 
+              className="h-8 filter grayscale hover:grayscale-0 
               cursor-pointer"
-              src="https://yt3.googleusercontent.com/GsP5Yvc5jOSop4SJf_75wdOYaEbO-7ZyYhnARodAGRnEMh-OQjGPGzUz2ZtzsHPtqFyHGvmbEtI=s900-c-k-c0x00ffffff-no-rj"
+              src="/logo.png"
               alt=""
             />
-          </div>
-        </footer>
-      </Link>
+          </Link>
+        </div>
+      </footer>
     </div>
   );
 };

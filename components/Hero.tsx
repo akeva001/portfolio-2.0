@@ -13,20 +13,20 @@ const Hero = ({ pageInfo }: Props) => {
     words: [
       `Hi, I'm ${pageInfo?.name}`,
       "I-love-to-play-tennis.tsx",
-      "<ButLoveToCodeMore />",
+      // "<ButLoveToCodeMore />",
     ],
     loop: true,
     delaySpeed: 2000,
   });
   return (
-    <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+    <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative">
       {/* <BackgroundPattern /> */}
       <img
-        className="relative rounded-full h-32 w-32 mx-auto object-cover"
+        className="absolute rounded-full h-32 w-32 mx-auto object-cover top-48 md:top-60"
         src={urlFor(pageInfo?.heroImage).url()}
         alt=""
       />
-      <div className="z-20">
+      <div className="z-10 absolute top-80 md:top-96 top">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
           {pageInfo?.role}
         </h2>
