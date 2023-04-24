@@ -122,16 +122,20 @@ export default function Header({ handleScroll }: Props) {
         transition={{ duration: 1.5 }}
         className="flex flex-row items-center text-gray-300 cursor-pointer"
       >
-        <SocialIcon
+        {/* <SocialIcon
           className="cursor-pointer"
           network="email"
           fgColor="gray"
           bgColor="transparent"
-        />
+        /> */}
         <Link href="#contact" onClick={handleScroll}>
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
-            Get In Touch
-          </p>
+          <div className="flex justify-center items-center">
+            <img src="./mail.svg" className="cursor-pointer w-6 mx-3" />
+
+            <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+              Get In Touch
+            </p>
+          </div>
         </Link>
       </motion.div>
     </header>
