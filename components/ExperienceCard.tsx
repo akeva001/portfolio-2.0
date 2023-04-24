@@ -13,8 +13,8 @@ function ExperienceCard({ experience }: Props) {
   return (
     <article
       className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-full
-    md:w-[800px] xl:w-[900px] snap-center bg-[#292929] px-3 py-10 md:p-10 hover:opacity-100 opacity-40
-    cursor-pointer transition-opacity duration-200 overflow-hidden"
+    md:w-[800px] xl:w-[900px] snap-center bg-[#292929] px-3 pt-7 pb-5 md:p-10 md:hover:opacity-100 md:opacity-40
+    cursor-pointer transition-opacity duration-200 overflow-hidden min-h-[65vh] md:min-h-full"
     >
       <div className="px-0 md:px-10 flex flex-col md:flex-row">
         {!showDetails && (
@@ -30,14 +30,14 @@ function ExperienceCard({ experience }: Props) {
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="w-32 h-32 rounded-full md:rounded-full xl:w-32 xl:h-32 object-cover object-center"
+                className="w-32 h-32 md:rounded-full mb-10 md:mb-7 xl:w-32 xl:h-32 object-contain object-center"
                 src={urlFor(experience?.companyImage).url()}
                 alt=""
               />
             </div>
 
-            <h4 className="text-3xl font-light">Frontend Developer</h4>
-            <p className="font-bold text-1xl mt-1">East of Western</p>
+            <h4 className="text-3xl font-light">{experience?.jobTitle}</h4>
+            <p className="font-bold text-1xl mt-1">{experience?.company}</p>
             <div className="flex space-x-2 my-2">
               {experience.technologies?.map((technology) => (
                 <img
@@ -65,7 +65,7 @@ function ExperienceCard({ experience }: Props) {
         </div>
 
         {showDetails && (
-          <ul className="flex flex-col list-disc space-y-2 ml-5 text-md w-full md:hidden">
+          <ul className="flex flex-col list-disc space-y-2 ml-5 pr-5 text-md w-full md:hidden">
             {experience.points.map((point, i) => (
               <li key={i}> {point}</li>
             ))}
@@ -75,14 +75,14 @@ function ExperienceCard({ experience }: Props) {
         <div className="flex justify-center items-center w-full md:hidden">
           {showDetails ? (
             <button
-              className="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mt-4 md:hidden"
+              className="text-blue-500 font-bold py-0 px-4 rounded mt-4 md:hidden"
               onClick={() => setShowDetails(false)}
             >
               Back
             </button>
           ) : (
             <button
-              className="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mt-4 md:hidden"
+              className="text-blue-500 font-bold py-2 px-4 rounded mt-4 md:hidden"
               onClick={() => setShowDetails(true)}
             >
               Details

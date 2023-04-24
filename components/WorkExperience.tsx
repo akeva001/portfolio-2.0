@@ -19,7 +19,7 @@ function Experience({ experiences }: Props) {
         Experience
       </h3>
       <div
-        className="w-full flex space-x-5 overflow-x-scroll md:mt-20 p-0 md:p-10 snap-x snap-mandatory
+        className="w-full flex space-x-5 overflow-x-scroll mt-24 md:mt-20 p-0 md:p-10 snap-x snap-mandatory
       scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#06c]/80"
       >
         {experiences?.map((experience) => (
