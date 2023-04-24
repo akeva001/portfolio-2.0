@@ -50,5 +50,11 @@ export default defineType({
       type: 'array',
       of: [{type: 'string'}],
     }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      validation: (Rule) => Rule.integer().positive(),
+    }),
   ],
 })
