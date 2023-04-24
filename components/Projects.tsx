@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Project } from "@/typings";
 import { urlFor } from "@/sanity";
+import Image from "next/image";
 
 type Props = { projects: Project[] };
 
@@ -26,15 +27,21 @@ function Projects({ projects }: Props) {
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-0
           items-center justify-center p-5 md:p-20 h-screen"
           >
-            <motion.img
+            <motion.div
               initial={{ y: -300, opacity: 0 }}
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src={urlFor(project?.image).url()}
-              className="md:h-60 h-44 mb-2 md:mb-5 md:mt-20"
-              alt=""
-            />
+              className="relative h-44 w-60 md:h-60 md:w-96 mb-2 md:mb-5 md:mt-20"
+            >
+              <Image
+                src={urlFor(project?.image).url()}
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </motion.div>
+
             <div className="space-y-5 px-0 md:x-10 max-w-6xl">
               <h4 className="text-2xl md:text-4xl font-semibold text-center">
                 <span className="underline decoration-[#464646]/50">
@@ -44,12 +51,15 @@ function Projects({ projects }: Props) {
               </h4>
               <div className="flex items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    key={technology._id}
-                    src={urlFor(technology.image).url()}
-                    alt=""
-                  />
+                  <div className="relative h-10 w-10">
+                    <Image
+                      className="rounded-full"
+                      key={technology._id}
+                      src={urlFor(technology.image).url()}
+                      alt=""
+                      fill
+                    />
+                  </div>
                 ))}
               </div>
               <p className="text-lg text-center md:text-left md:max-w-md">

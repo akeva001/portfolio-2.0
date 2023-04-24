@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { PageInfo } from "@/typings";
 import { urlFor } from "@/sanity";
+import Image from "next/image";
 
 type Props = { pageInfo: PageInfo };
 
@@ -17,14 +18,21 @@ function About({ pageInfo }: Props) {
         About
       </h3>
       <div className="flex flex-col md:flex-row justify-evenly md:justify-center items-center mt-20 h-full">
-        <motion.img
+        <motion.div
           initial={{ x: -200, opacity: 0 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          src={urlFor(pageInfo?.profilePic).url()}
-          className="-mb-20 md:mb-0 flex-shrink-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-64 md:h-64 xl:w-[400px] xl:h-[400px]"
-        />
+          className="relative -mb-20 md:mb-0 flex-shrink-0 w-36 h-36 md:w-64 md:h-64 xl:w-[400px] xl:h-[400px]"
+        >
+          <Image
+            src={urlFor(pageInfo?.profilePic).url()}
+            fill
+            alt=""
+            className="rounded-full object-cover md:rounded-lg"
+          />
+        </motion.div>
+
         <div className="space-y-10 px-0 md:px-10">
           {/* <h4 className="text-4xl font-semibold">
           Here is a{" "}
@@ -42,37 +50,6 @@ function About({ pageInfo }: Props) {
             {pageInfo.backgroundInformation.split(". ").slice(0, 4).join(". ") +
               ". "}
           </p>
-          {/* <p className="text-base hidden md:block">
-            Hello! My name is Alex Kevakian and I currently reside in Glendale,
-            California. I graduated from the University of California,
-            Riverside; with a bachelors degree in Computer Science. Over the
-            past 3 years as a Front-end Developer, I have designed, developed,
-            and launched custom, highly responsive websites using React and
-            NextJS. My Front-end experience also extends to building mobile
-            applications using React Native. <br />
-            <br />I have been very fortunate to have the opportunity to play
-            tennis my entire life. I started playing tennis when I was 5 years
-            old, and was a competitive tennis player from 9 years old through
-            junior college. Tennis has taught me many valuable lessons that have
-            built my character into that of a problem solver, leader, and an
-            individual with integrity.
-          </p>
-          <p className="text-base md:hidden">
-            Hello! My name is Alex Kevakian and I currently reside in Glendale,
-            California. I graduated from the University of California,
-            Riverside; with a bachelors degree in Computer Science. Over the
-            past 3 years as a Front-end Developer, I have designed, developed,
-            and launched custom, highly responsive websites using React and
-            NextJS. My Front-end experience also extends to building mobile
-            applications using React Native. <br />
-            {/* <br />I have been very fortunate to have the opportunity to play
-          tennis my entire life. I started playing tennis when I was 5 years
-          old, and was a competitive tennis player from 9 years old through
-          junior college. Tennis has taught me many valuable lessons that have
-          built my character into that of a problem solver, leader, and an
-          individual with integrity. 
-          </p>
-        */}
         </div>
       </div>
     </motion.div>

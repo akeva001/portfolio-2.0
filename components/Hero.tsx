@@ -3,6 +3,7 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundPattern from "./BackgroundPattern";
 import { PageInfo } from "@/typings";
 import { urlFor } from "@/sanity";
+import Image from "next/image";
 
 type Props = {
   pageInfo: PageInfo;
@@ -21,11 +22,15 @@ const Hero = ({ pageInfo }: Props) => {
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative">
       {/* <BackgroundPattern /> */}
-      <img
-        className="absolute rounded-full h-32 w-32 mx-auto object-cover top-48 md:top-[33vh] 2xl:h-52 2xl:w-52"
-        src={urlFor(pageInfo?.heroImage).url()}
-        alt=""
-      />
+      <div className="absolute h-32 w-32 top-48 md:top-[33vh] 2xl:h-52 2xl:w-52">
+        <Image
+          src={urlFor(pageInfo?.heroImage).url()}
+          alt=""
+          fill
+          className="rounded-full object-cover"
+        />
+      </div>
+
       <div className="z-10 absolute top-80 md:top-[50vh]">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
           {pageInfo?.role}

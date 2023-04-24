@@ -20,7 +20,7 @@ function ExperienceCard({ experience }: Props) {
         {!showDetails && (
           <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5 md:pr-5">
             <div className="flex justify-center md:justify-start mb-3">
-              <motion.img
+              <motion.div
                 initial={{
                   y: -100,
                   opacity: 0,
@@ -30,22 +30,30 @@ function ExperienceCard({ experience }: Props) {
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="w-32 h-32 rounded-full md:rounded-full mb-10 md:mb-7 xl:w-32 xl:h-32 object-contain object-center border border-gray-500"
-                src={urlFor(experience?.companyImage).url()}
-                alt=""
-              />
+                className="relative w-32 h-32 mb-10 md:mb-7 xl:w-32 xl:h-32 object-contain object-center"
+              >
+                <Image
+                  className="rounded-full border border-gray-500"
+                  src={urlFor(experience?.companyImage).url()}
+                  alt=""
+                  fill
+                />
+              </motion.div>
             </div>
 
             <h4 className="text-3xl font-light">{experience?.jobTitle}</h4>
             <p className="font-bold text-1xl mt-1">{experience?.company}</p>
             <div className="flex flex-wrap justify-start gap-2 my-2">
               {experience.technologies?.map((technology) => (
-                <img
-                  key={technology._id}
-                  className="h-10 w-10 rounded-full"
-                  src={urlFor(technology.image).url()}
-                  alt=""
-                />
+                <div className="relative h-10 w-10">
+                  <Image
+                    key={technology._id}
+                    fill
+                    src={urlFor(technology.image).url()}
+                    alt=""
+                    className="rounded-full"
+                  />
+                </div>
               ))}
             </div>
 

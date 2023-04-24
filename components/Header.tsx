@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   handleScroll: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
@@ -130,7 +131,9 @@ export default function Header({ handleScroll }: Props) {
         /> */}
         <Link href="#contact" onClick={handleScroll}>
           <div className="flex justify-center items-center">
-            <img src="./mail.svg" className="cursor-pointer w-6 mx-3" />
+            <div>
+              <img src="./mail.svg" className="cursor-pointer w-6 mx-3" />
+            </div>
 
             <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
               Get In Touch
