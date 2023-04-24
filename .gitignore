@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-/sanity
+/sanity/node_modules
 
 # JetBrains IDE files
 .idea/
