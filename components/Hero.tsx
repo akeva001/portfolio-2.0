@@ -22,11 +22,11 @@ const Hero = ({ pageInfo }: Props) => {
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative">
       {/* <BackgroundPattern /> */}
       <img
-        className="absolute rounded-full h-32 w-32 mx-auto object-cover top-48 md:top-60"
+        className="absolute rounded-full h-32 w-32 mx-auto object-cover top-48 md:top-[33vh] 2xl:h-52 2xl:w-52"
         src={urlFor(pageInfo?.heroImage).url()}
         alt=""
       />
-      <div className="z-10 absolute top-80 md:top-96 top">
+      <div className="z-10 absolute top-80 md:top-[50vh]">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
           {pageInfo?.role}
         </h2>
