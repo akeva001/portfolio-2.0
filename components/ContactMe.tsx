@@ -24,27 +24,27 @@ const ContactMe = (props: Props) => {
   return (
     <div
       className="h-screen relative flex flex-col text-center md:text-left md:flex-row
-    max-w-7xl px-10 justify-evenly mx-auto items-center"
+    max-w-7xl justify-evenly mx-auto items-center"
     >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Contact
       </h3>
-      <div className="flex flex-col space-y-10">
+      {/* <div className="flex flex-col space-y-10">
         <div className="flex items-center space-x-5">
-          <PhoneIcon className="h-7 w-7 text-[#F7AB0A]" />
+          <PhoneIcon className="h-7 w-7 text-[#06c]" />
           <p>+18189342736</p>
         </div>
         <div className="flex items-center space-x-5">
-          <EnvelopeIcon className="h-7 w-7 text-[#F7AB0A]" />
+          <EnvelopeIcon className="h-7 w-7 text-[#06c]" />
           <p>+18189342736</p>
         </div>
-      </div>
+      </div> */}
 
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-2 w-fit mx-auto"
       >
-        <div className="flex space-x-2">
+        <div className="flex flex-col md:flex-row md:space-x-2 space-y-2 md:space-y-0">
           <input
             {...register("name")}
             placeholder="Name"
@@ -67,11 +67,11 @@ const ContactMe = (props: Props) => {
         <textarea
           {...register("message")}
           placeholder="Message"
-          className="contactInput"
+          className="contactInput  md:min-h-[150px]"
         />
         <button
           type="submit"
-          className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
+          className="bg-[#06c] py-5 px-10 rounded-md text-black font-bold text-lg"
         >
           Submit
         </button>
