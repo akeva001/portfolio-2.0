@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-type Props = {};
+import { Experience } from "@/typings";
+import { urlFor } from "@/sanity";
 
-function ExperienceCard({}: Props) {
+type Props = {
+  experience: Experience;
+};
+
+function ExperienceCard({ experience }: Props) {
   const [showDetails, setShowDetails] = useState(false);
   return (
     <article
@@ -26,7 +31,7 @@ function ExperienceCard({}: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="w-32 h-32 rounded-full md:rounded-full xl:w-32 xl:h-32 object-cover object-center"
-                src="https://www.alexkevakian.com/static/media/Me2.5ddc11fc3ae865e50923.jpg"
+                src={urlFor(experience?.companyImage).url()}
                 alt=""
               />
             </div>
@@ -34,74 +39,36 @@ function ExperienceCard({}: Props) {
             <h4 className="text-3xl font-light">Frontend Developer</h4>
             <p className="font-bold text-1xl mt-1">East of Western</p>
             <div className="flex space-x-2 my-2">
-              <img
-                className="h-10 w-10 rounded-full"
-                src="https://www.alexkevakian.com/static/media/Me2.5ddc11fc3ae865e50923.jpg"
-                alt=""
-              />
-              <img
-                className="h-10 w-10 rounded-full"
-                src="https://www.alexkevakian.com/static/media/Me2.5ddc11fc3ae865e50923.jpg"
-                alt=""
-              />
-              <img
-                className="h-10 w-10 rounded-full"
-                src="https://www.alexkevakian.com/static/media/Me2.5ddc11fc3ae865e50923.jpg"
-                alt=""
-              />
+              {experience.technologies?.map((technology) => (
+                <img
+                  key={technology._id}
+                  className="h-10 w-10 rounded-full"
+                  src={urlFor(technology.image).url()}
+                  alt=""
+                />
+              ))}
             </div>
             <p className="uppercase py-5 text-gray-300">
-              Started work... - Ended...
+              {new Date(experience.dateStarted).toDateString()} -{" "}
+              {experience.isCurrentlyWorkingHere
+                ? "Present"
+                : new Date(experience.dateEnded).toDateString()}
             </p>
           </div>
         )}
         <div className="justify-center items-center md:w-3/5 lg:ml-10 hidden md:flex">
           <ul className="list-disc space-y-4 ml-5 text-md">
-            <li>
-              Summary pointsSummary pointsSummary points Summary points Summary
-              points
-            </li>
-            <li>
-              Summary pointsSummary pointsSummary points Summary points Summary
-              points
-            </li>
-            <li>
-              Summary pointsSummary pointsSummary points Summary points Summary
-              points
-            </li>
-            <li>
-              Summary pointsSummary pointsSummary points Summary points Summary
-              points
-            </li>
-            <li>
-              Summary pointsSummary pointsSummary points Summary points Summary
-              points
-            </li>
+            {experience.points.map((point, i) => (
+              <li key={i}> {point}</li>
+            ))}
           </ul>
         </div>
 
         {showDetails && (
           <ul className="flex flex-col list-disc space-y-2 ml-5 text-md w-full md:hidden">
-            <li>
-              Summary pointsSummary points Summary points Summary pointsSummary
-              points
-            </li>
-            <li>
-              Summary pointsSummary pointsSummary points Summary pointsSummary
-              points
-            </li>
-            <li>
-              Summary pointsSummary pointsSummary points Summary pointsSummary
-              points
-            </li>
-            <li>
-              Summary pointsSummary pointsSummary points Summary pointsSummary
-              points
-            </li>
-            <li>
-              Summary pointsSummary pointsSummary points Summary pointsSummary
-              points
-            </li>
+            {experience.points.map((point, i) => (
+              <li key={i}> {point}</li>
+            ))}
           </ul>
         )}
 

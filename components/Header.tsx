@@ -3,9 +3,11 @@ import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-type Props = {};
+type Props = {
+  handleScroll: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+};
 
-export default function Header({}: Props) {
+export default function Header({ handleScroll }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -21,16 +23,16 @@ export default function Header({}: Props) {
         className="flex flex-row items-center"
       >
         <div className="hidden md:flex md:flex-row md:items-center">
-          <Link href="#about">
+          <Link href="#about" onClick={handleScroll}>
             <button className="headerButton">About</button>
           </Link>
-          <Link href="#experience">
+          <Link href="#experience" onClick={handleScroll}>
             <button className="headerButton">Experience</button>
           </Link>
-          <Link href="#skills">
+          <Link href="#skills" onClick={handleScroll}>
             <button className="headerButton">Skills</button>
           </Link>
-          <Link href="#projects">
+          <Link href="#projects" onClick={handleScroll}>
             <button className="headerButton">Projects</button>
           </Link>
         </div>
@@ -91,22 +93,22 @@ export default function Header({}: Props) {
           </svg>
         </button>
         <div className="flex flex-col items-center justify-center h-full">
-          <Link href="#about">
+          <Link href="#about" onClick={handleScroll}>
             <button className="headerButton my-4" onClick={toggleMenu}>
               About
             </button>
           </Link>
-          <Link href="#experience">
+          <Link href="#experience" onClick={handleScroll}>
             <button className="headerButton my-4" onClick={toggleMenu}>
               Experience
             </button>
           </Link>
-          <Link href="#skills">
+          <Link href="#skills" onClick={handleScroll}>
             <button className="headerButton my-4" onClick={toggleMenu}>
               Skills
             </button>
           </Link>
-          <Link href="#projects">
+          <Link href="#projects" onClick={handleScroll}>
             <button className="headerButton my-4" onClick={toggleMenu}>
               Projects
             </button>
@@ -126,9 +128,11 @@ export default function Header({}: Props) {
           fgColor="gray"
           bgColor="transparent"
         />
-        <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
-          Get In Touch
-        </p>
+        <Link href="#contact" onClick={handleScroll}>
+          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+            Get In Touch
+          </p>
+        </Link>
       </motion.div>
     </header>
   );

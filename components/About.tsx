@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-type Props = {};
+import { PageInfo } from "@/typings";
+import { urlFor } from "@/sanity";
 
-function About({}: Props) {
+type Props = { pageInfo: PageInfo };
+
+function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -10,7 +13,7 @@ function About({}: Props) {
       transition={{ duration: 1.5 }}
       className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase ml-[20px] tracking-[20px] text-gray-500 text-2xl">
         About
       </h3>
       <div className="flex flex-col md:flex-row justify-evenly md:justify-center items-center mt-20 h-full">
@@ -19,7 +22,7 @@ function About({}: Props) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          src="https://www.alexkevakian.com/static/media/Me2.5ddc11fc3ae865e50923.jpg"
+          src={urlFor(pageInfo?.heroImage).url()}
           className="-mb-20 md:mb-0 flex-shrink-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-64 md:h-64 xl:w-[400px] xl:h-[400px]"
         />
         <div className="space-y-10 px-0 md:px-10">
@@ -29,6 +32,12 @@ function About({}: Props) {
           background
         </h4> */}
           <p className="text-base hidden md:block">
+            {pageInfo.backgroundInformation}
+          </p>
+          <p className="text-base md:hidden">
+            {pageInfo.backgroundInformation}
+          </p>
+          {/* <p className="text-base hidden md:block">
             Hello! My name is Alex Kevakian and I currently reside in Glendale,
             California. I graduated from the University of California,
             Riverside; with a bachelors degree in Computer Science. Over the
@@ -56,8 +65,9 @@ function About({}: Props) {
           old, and was a competitive tennis player from 9 years old through
           junior college. Tennis has taught me many valuable lessons that have
           built my character into that of a problem solver, leader, and an
-          individual with integrity. */}
+          individual with integrity. 
           </p>
+        */}
         </div>
       </div>
     </motion.div>

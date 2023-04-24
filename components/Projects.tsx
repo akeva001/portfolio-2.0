@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Project } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = { projects: Project[] };
 
-function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -13,7 +14,7 @@ function Projects({}: Props) {
       className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row
     max-w-full justify-evenly mx-auto items-center z-0"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 ml-[20px] uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
       <div
@@ -30,7 +31,7 @@ function Projects({}: Props) {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src="https://www.alexkevakian.com/static/media/TopTier.db50aac0549d071e32c4.png"
+              src={urlFor(project?.image).url()}
               className="h-60 xl:h-60"
               alt=""
             />
@@ -39,10 +40,20 @@ function Projects({}: Props) {
                 <span className="underline decoration-[#464646]/50">
                   {i + 1} of {projects.length}:
                 </span>{" "}
-                UPS clone
+                {project?.title}
               </h4>
+              <div className="flex items-center space-x-2 justify-center">
+                {project?.technologies.map((technology) => (
+                  <img
+                    className="h-10 w-10"
+                    key={technology._id}
+                    src={urlFor(technology.image).url()}
+                    alt=""
+                  />
+                ))}
+              </div>
               <p className="text-lg text-center md:text-left">
-                project summary
+                {project?.summary}
               </p>
             </div>
           </div>

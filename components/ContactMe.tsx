@@ -26,7 +26,7 @@ const ContactMe = (props: Props) => {
       className="h-screen relative flex flex-col text-center md:text-left md:flex-row
     max-w-7xl justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase ml-[20px] tracking-[20px] text-gray-500 text-2xl">
         Contact
       </h3>
       {/* <div className="flex flex-col space-y-10">
@@ -42,7 +42,7 @@ const ContactMe = (props: Props) => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col space-y-2 w-fit mx-auto"
+        className="flex flex-col space-y-2 w-full p-10 md:p-0 md:w-fit mx-auto"
       >
         <div className="flex flex-col md:flex-row md:space-x-2 space-y-2 md:space-y-0">
           <input

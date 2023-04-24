@@ -23,6 +23,19 @@ type Props = {
 };
 
 const Home = ({ pageInfo, experiences, projects, skills }: Props) => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    // first prevent the default behavior
+    e.preventDefault();
+    // get the href and remove everything before the hash (#)
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    // get the element by id and use scrollIntoView
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div
       className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll 
@@ -32,26 +45,26 @@ const Home = ({ pageInfo, experiences, projects, skills }: Props) => {
         <title>Alex's Portfolio</title>
       </Head>
 
-      <Header />
+      <Header handleScroll={handleScroll} />
 
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
 
       <section id="about" className="snap-center">
-        <About />
+        <About pageInfo={pageInfo} />
       </section>
 
       <section id="experience" className="snap-center">
-        <WorkExperience />
+        <WorkExperience experiences={experiences} />
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       <section id="contact" className="snap-start">
@@ -60,7 +73,7 @@ const Home = ({ pageInfo, experiences, projects, skills }: Props) => {
 
       <footer className="sticky bottom-5 w-full">
         <div className="flex items-center justify-center">
-          <Link href="#hero">
+          <Link href="#hero" onClick={handleScroll}>
             <img
               className="h-8 filter grayscale hover:grayscale-0 
               cursor-pointer"
