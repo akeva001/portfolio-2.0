@@ -75,7 +75,7 @@ const Home = ({ pageInfo, experiences, projects, skills }: Props) => {
         <div className="flex items-center justify-center">
           <Link href="#hero" onClick={handleScroll}>
             <img
-              className="h-8 filter grayscale hover:grayscale-0 
+              className="h-8 filter opacity-60 hover:opacity-100 
               cursor-pointer"
               src="/logo.png"
               alt=""
