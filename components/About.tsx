@@ -32,10 +32,15 @@ function About({ pageInfo }: Props) {
           background
         </h4> */}
           <p className="text-base hidden md:block">
-            {pageInfo.backgroundInformation}
+            {pageInfo.backgroundInformation.split(". ").slice(0, 4).join(". ") +
+              ". "}
+          </p>
+          <p className="text-base hidden md:block">
+            {pageInfo.backgroundInformation.split(". ").slice(4).join(". ")}
           </p>
           <p className="text-base md:hidden">
-            {pageInfo.backgroundInformation}
+            {pageInfo.backgroundInformation.split(". ").slice(0, 4).join(". ") +
+              ". "}
           </p>
           {/* <p className="text-base hidden md:block">
             Hello! My name is Alex Kevakian and I currently reside in Glendale,
