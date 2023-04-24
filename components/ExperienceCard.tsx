@@ -18,7 +18,7 @@ function ExperienceCard({ experience }: Props) {
     >
       <div className="px-0 md:px-10 flex flex-col md:flex-row md:justify-center md:items-center">
         {!showDetails && (
-          <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5">
+          <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5 md:pr-5">
             <div className="flex justify-center md:justify-start mb-3">
               <motion.img
                 initial={{
@@ -30,7 +30,7 @@ function ExperienceCard({ experience }: Props) {
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="w-32 h-32 rounded-full md:rounded-full mb-10 md:mb-7 xl:w-32 xl:h-32 object-contain object-center"
+                className="w-32 h-32 rounded-full md:rounded-full mb-10 md:mb-7 xl:w-32 xl:h-32 object-contain object-center border border-gray-500"
                 src={urlFor(experience?.companyImage).url()}
                 alt=""
               />
@@ -50,10 +50,17 @@ function ExperienceCard({ experience }: Props) {
             </div>
 
             <p className="uppercase py-5 text-gray-300">
-              {new Date(experience.dateStarted).toDateString()} -{" "}
+              {new Date(experience.dateStarted).toLocaleString("default", {
+                month: "short",
+                year: "numeric",
+              })}{" "}
+              -{" "}
               {experience.isCurrentlyWorkingHere
                 ? "Present"
-                : new Date(experience.dateEnded).toDateString()}
+                : new Date(experience.dateEnded).toLocaleString("default", {
+                    month: "short",
+                    year: "numeric",
+                  })}
             </p>
           </div>
         )}
