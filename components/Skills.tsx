@@ -24,7 +24,7 @@ function Skills({ skills }: Props) {
     >
       <motion.h1
         key={hoveredSkill}
-        className="absolute leading-[4rem] md:leading-[16rem] bottom-32 md:bottom-auto text-5xl md:text-[14rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-gray-400 to-gray-600 z-0"
+        className="absolute leading-[4rem] md:leading-[16rem] bottom-32 md:bottom-0 lg:bottom-0 text-5xl md:text-[5rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-gray-400 to-gray-600 z-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: hover ? 0.3 : 0 }}
         transition={{ duration: 0.5 }}
