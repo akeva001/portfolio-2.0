@@ -163,7 +163,7 @@ const ContactMe = (props: Props) => {
         <button
           type="submit"
           className={`py-5 px-10 rounded-md text-black font-bold text-lg cursor-pointer ${
-            !showSuccessMessage ? "bg-[#06c]" : "bg-gray-500"
+            !showSuccessMessage ? "bg-[#06c]" : "bg-gray-500 cursor-default"
           }`}
           disabled={showSuccessMessage}
         >
