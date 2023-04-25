@@ -44,7 +44,7 @@ function ExperienceCard({ experience }: Props) {
 
             <h4 className="text-3xl font-light">{experience?.jobTitle}</h4>
             <p className="font-bold text-1xl mt-1">{experience?.company}</p>
-            <div className="relative flex flex-wrap justify-start gap-2 my-2">
+            <div className="relative flex flex-wrap justify-start gap-3 my-2">
               {experience.technologies?.map((technology) => (
                 <div className="relative h-10 w-10" key={technology._id}>
                   <Image
