@@ -53,7 +53,7 @@ function Projects({ projects }: Props) {
                 {project?.technologies.map((technology) => (
                   <div className="relative h-10 w-10">
                     <Image
-                      className="rounded-full"
+                      className="rounded-full border border-gray-500"
                       key={technology._id}
                       src={urlFor(technology.image).url()}
                       alt=""

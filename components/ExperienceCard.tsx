@@ -51,7 +51,7 @@ function ExperienceCard({ experience }: Props) {
                     fill
                     src={urlFor(technology.image).url()}
                     alt=""
-                    className="rounded-full"
+                    className="rounded-full border border-gray-500"
                   />
                 </div>
               ))}
