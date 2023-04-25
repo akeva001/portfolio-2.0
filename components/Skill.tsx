@@ -7,9 +7,10 @@ import Image from "next/image";
 type Props = {
   skill: Skill;
   directionLeft?: boolean;
+  onHover: (title: string, hover: boolean) => void;
 };
 
-function Skill({ skill, directionLeft }: Props) {
+function Skill({ skill, directionLeft, onHover }: Props) {
   return (
     <div className="group relative flex cursor-pointer">
       <motion.div
@@ -39,6 +40,8 @@ function Skill({ skill, directionLeft }: Props) {
       <div
         className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out
       group-hover:bg-white  w-16 h-16 md:w-20 md:h-20 xl:w-20 xl:h-20 rounded-full z-0"
+        onMouseOver={() => onHover(skill.title, true)}
+        onMouseLeave={() => onHover(skill.title, false)}
       >
         <div className="flex items-center justify-center h-full">
           <p className="text-1xl md:text-2xl font-bold text-black opacity-100">
