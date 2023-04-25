@@ -45,7 +45,7 @@ function ExperienceCard({ experience }: Props) {
             <p className="font-bold text-1xl mt-1">{experience?.company}</p>
             <div className="flex flex-wrap justify-start gap-2 my-2">
               {experience.technologies?.map((technology) => (
-                <div className="relative h-10 w-10">
+                <div className="relative h-10 w-10" key={technology._id}>
                   <Image
                     key={technology._id}
                     fill

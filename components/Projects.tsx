@@ -26,6 +26,7 @@ function Projects({ projects }: Props) {
           <div
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-0
           items-center justify-center p-5 md:p-20 h-screen"
+            key={project._id}
           >
             <motion.div
               initial={{ y: -300, opacity: 0 }}
@@ -51,7 +52,7 @@ function Projects({ projects }: Props) {
               </h4>
               <div className="flex items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
-                  <div className="relative h-10 w-10">
+                  <div className="relative h-10 w-10" key={technology._id}>
                     <Image
                       className="rounded-full border border-gray-500"
                       key={technology._id}
