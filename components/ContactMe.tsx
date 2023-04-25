@@ -39,7 +39,7 @@ const ContactMe = (props: Props) => {
     let isValid = true;
 
     if (fullname.length <= 0) {
-      tempErrors["fullname"] = true;
+      tempErrors["name"] = true;
       isValid = false;
     }
     if (email.length <= 0) {
