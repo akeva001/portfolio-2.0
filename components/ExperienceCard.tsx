@@ -18,7 +18,7 @@ function ExperienceCard({ experience }: Props) {
     >
       <div className="px-0 md:px-10 flex flex-col md:flex-row md:justify-center md:items-center">
         {!showDetails && (
-          <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5 md:pr-5">
+          <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5 md:pr-5 md:hidden">
             <div className="relative flex justify-center md:justify-start mb-3">
               <motion.div
                 initial={{
@@ -74,6 +74,61 @@ function ExperienceCard({ experience }: Props) {
             </p>
           </div>
         )}
+        <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5 md:pr-5 hidden md:block">
+          <div className="relative flex justify-center md:justify-start mb-3">
+            <motion.div
+              initial={{
+                y: -100,
+                opacity: 0,
+              }}
+              transition={{
+                duration: 1.2,
+              }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative w-32 h-32 mb-10 md:mb-7 xl:w-32 xl:h-32 object-contain object-center"
+            >
+              <Image
+                className="rounded-full border border-gray-500"
+                src={urlFor(experience?.companyImage).url()}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
+              />
+            </motion.div>
+          </div>
+
+          <h4 className="text-3xl font-light">{experience?.jobTitle}</h4>
+          <p className="font-bold text-1xl mt-1">{experience?.company}</p>
+          <div className="relative flex flex-wrap justify-start gap-3 my-2">
+            {experience.technologies?.map((technology) => (
+              <div className="relative h-10 w-10" key={technology._id}>
+                <Image
+                  key={technology._id}
+                  fill
+                  src={urlFor(technology.image).url()}
+                  alt=""
+                  className="rounded-full border border-gray-500"
+                  sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
+                />
+              </div>
+            ))}
+          </div>
+
+          <p className="uppercase py-5 text-gray-300">
+            {new Date(experience.dateStarted).toLocaleString("default", {
+              month: "short",
+              year: "numeric",
+            })}{" "}
+            -{" "}
+            {experience.isCurrentlyWorkingHere
+              ? "Present"
+              : new Date(experience.dateEnded).toLocaleString("default", {
+                  month: "short",
+                  year: "numeric",
+                })}
+          </p>
+        </div>
         <div className="justify-center items-center md:w-3/5 lg:ml-10 hidden md:flex">
           <ul className="list-disc space-y-3 ml-5 text-md">
             {experience.points.map((point, i) => (
