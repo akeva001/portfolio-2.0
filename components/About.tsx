@@ -17,7 +17,7 @@ function About({ pageInfo }: Props) {
       <h3 className="absolute top-24 uppercase ml-[20px] tracking-[20px] text-gray-500 text-2xl">
         About
       </h3>
-      <div className="flex flex-col md:flex-row justify-evenly md:justify-center items-center mt-20 h-full">
+      <div className="relative flex flex-col md:flex-row justify-evenly md:justify-center items-center mt-20 h-full">
         <motion.div
           initial={{ x: -200, opacity: 0 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -30,6 +30,7 @@ function About({ pageInfo }: Props) {
             fill
             alt=""
             className="rounded-full object-cover md:rounded-lg"
+            sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
           />
         </motion.div>
 

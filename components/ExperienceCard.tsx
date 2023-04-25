@@ -19,7 +19,7 @@ function ExperienceCard({ experience }: Props) {
       <div className="px-0 md:px-10 flex flex-col md:flex-row md:justify-center md:items-center">
         {!showDetails && (
           <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5 md:pr-5">
-            <div className="flex justify-center md:justify-start mb-3">
+            <div className="relative flex justify-center md:justify-start mb-3">
               <motion.div
                 initial={{
                   y: -100,
@@ -37,13 +37,14 @@ function ExperienceCard({ experience }: Props) {
                   src={urlFor(experience?.companyImage).url()}
                   alt=""
                   fill
+                  sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
                 />
               </motion.div>
             </div>
 
             <h4 className="text-3xl font-light">{experience?.jobTitle}</h4>
             <p className="font-bold text-1xl mt-1">{experience?.company}</p>
-            <div className="flex flex-wrap justify-start gap-2 my-2">
+            <div className="relative flex flex-wrap justify-start gap-2 my-2">
               {experience.technologies?.map((technology) => (
                 <div className="relative h-10 w-10" key={technology._id}>
                   <Image
@@ -52,6 +53,7 @@ function ExperienceCard({ experience }: Props) {
                     src={urlFor(technology.image).url()}
                     alt=""
                     className="rounded-full border border-gray-500"
+                    sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
                   />
                 </div>
               ))}

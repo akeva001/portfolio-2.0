@@ -24,7 +24,7 @@ function Projects({ projects }: Props) {
       >
         {projects.map((project, i) => (
           <div
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-0
+            className="relative w-screen flex-shrink-0 snap-center flex flex-col space-y-0
           items-center justify-center p-5 md:p-20 h-screen"
             key={project._id}
           >
@@ -40,6 +40,7 @@ function Projects({ projects }: Props) {
                 alt=""
                 fill
                 className="object-contain"
+                sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
               />
             </motion.div>
 
@@ -50,7 +51,7 @@ function Projects({ projects }: Props) {
                 </span>{" "}
                 {project?.title}
               </h4>
-              <div className="flex items-center space-x-2 justify-center">
+              <div className="relative flex items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
                   <div className="relative h-10 w-10" key={technology._id}>
                     <Image
@@ -59,6 +60,7 @@ function Projects({ projects }: Props) {
                       src={urlFor(technology.image).url()}
                       alt=""
                       fill
+                      sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
                     />
                   </div>
                 ))}

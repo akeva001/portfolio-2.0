@@ -24,10 +24,13 @@ const Hero = ({ pageInfo }: Props) => {
       {/* <BackgroundPattern /> */}
       <div className="absolute h-32 w-32 top-48 md:top-[33vh] 2xl:h-52 2xl:w-52">
         <Image
+          quality={100}
           src={urlFor(pageInfo?.heroImage).url()}
           alt=""
           fill
           className="rounded-full object-cover"
+          sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
+          priority
         />
       </div>
 
