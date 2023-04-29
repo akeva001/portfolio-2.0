@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Project } from "@/typings";
 import { urlFor } from "@/sanity";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = { projects: Project[] };
 
@@ -28,21 +29,26 @@ function Projects({ projects }: Props) {
           items-center justify-center p-5 md:p-20 h-screen"
             key={project._id}
           >
-            <motion.div
-              initial={{ y: -300, opacity: 0 }}
-              transition={{ duration: 1.2 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative h-44 w-60 md:h-60 md:w-96 mb-2 md:mb-5 md:mt-20"
+            <Link
+              href={project?.linkToBuild ? project.linkToBuild : "/"}
+              target="_blank"
             >
-              <Image
-                src={urlFor(project?.image).url()}
-                alt=""
-                fill
-                className="object-contain"
-                sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
-              />
-            </motion.div>
+              <motion.div
+                initial={{ y: -300, opacity: 0 }}
+                transition={{ duration: 1.2 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative h-44 w-60 md:h-60 md:w-96 mb-2 md:mb-5 md:mt-20"
+              >
+                <Image
+                  src={urlFor(project?.image).url()}
+                  alt=""
+                  fill
+                  className="object-contain"
+                  sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
+                />
+              </motion.div>
+            </Link>
 
             <div className="space-y-5 px-0 md:x-10 max-w-6xl">
               <h4 className="text-2xl md:text-4xl font-semibold text-center">
