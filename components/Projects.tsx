@@ -74,12 +74,13 @@ function Projects({ projects }: Props) {
                   {i + 1} of {projects.length}:
                 </span>{" "}
                 {project?.title}
+                {project?.isCurrentlyWorkingOn && (
+                  <p className="text-md md:text-xl text-center m-0">
+                    (Currently in progress)
+                  </p>
+                )}
               </h4>
-              {project?.isCurrentlyWorkingOn && (
-                <p className="text-md md:text-2xl text-center">
-                  (In progress...)
-                </p>
-              )}
+
               <div className="relative flex items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
                   <div className="relative h-10 w-10" key={technology._id}>
