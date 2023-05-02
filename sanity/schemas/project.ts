@@ -39,5 +39,10 @@ export default defineType({
       title: 'DateStarted',
       type: 'date',
     }),
+    defineField({
+      name: 'isCurrentlyWorkingOn',
+      title: 'IsCurrentlyWorkingOn',
+      type: 'boolean',
+    }),
   ],
 })

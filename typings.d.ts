@@ -46,6 +46,7 @@ export interface Project extends SanityBody {
   linkToBuild: string;
   summary: string;
   technologies: Technology[];
+  isCurrentlyWorkingOn: boolean;
 }
 
 export interface Experience extends SanityBody {
