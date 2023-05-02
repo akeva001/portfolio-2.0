@@ -34,5 +34,10 @@ export default defineType({
       title: 'LinkToBuild',
       type: 'url',
     }),
+    defineField({
+      name: 'dateStarted',
+      title: 'DateStarted',
+      type: 'date',
+    }),
   ],
 })

@@ -51,7 +51,7 @@ function Projects({ projects }: Props) {
             </Link>
 
             <div className="space-y-5 px-0 md:x-10 max-w-6xl">
-              <h4 className="text-2xl md:text-4xl font-semibold text-center">
+              <h4 className="text-2xl md:text-4xl font-semibold text-center md:max-w-md">
                 <span className="underline decoration-[#464646]/50">
                   {i + 1} of {projects.length}:
                 </span>{" "}
