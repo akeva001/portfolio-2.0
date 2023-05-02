@@ -75,7 +75,7 @@ function Projects({ projects }: Props) {
                 </span>{" "}
                 {project?.title}
                 {project?.isCurrentlyWorkingOn && (
-                  <p className="text-md md:text-xl text-center m-0">
+                  <p className="text-sm md:text-xl text-center m-0">
                     (Currently in progress)
                   </p>
                 )}
