@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Project } from "@/typings";
 import { urlFor } from "@/sanity";
@@ -8,6 +8,20 @@ import Link from "next/link";
 type Props = { projects: Project[] };
 
 function Projects({ projects }: Props) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const glowStyle = {
+    filter: isHovered ? "drop-shadow(0 0 10px #06c)" : "none",
+    transition: "filter 0.2s ease-in-out",
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -39,14 +53,18 @@ function Projects({ projects }: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="relative h-44 w-60 md:h-60 md:w-96 mb-2 md:mb-5 md:mt-20"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                style={glowStyle}
               >
                 <Image
                   src={urlFor(project?.image).url()}
                   alt=""
                   fill
-                  className="object-contain"
+                  className="object-contain z-10 "
                   sizes="(min-width: 768px) 256px, (min-width: 1024px) 384px, 128px" // 128px used if width < 768px
                 />
+                {/* <div className="absolute h-44 w-44 md:h-50 md:w-50 bg-blue-500 rounded-full z-0 -inset-0.5 m-auto left-0 right-0 justify-center blur opacity-50"></div> */}
               </motion.div>
             </Link>
 
