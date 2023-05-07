@@ -21,7 +21,7 @@ export default function Header({ handleScroll }: Props) {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5 }}
-        className="flex flex-row items-center"
+        className="hidden md:flex flex-row items-center"
       >
         <div className="hidden md:flex md:flex-row md:items-center">
           <SocialIcon
@@ -137,6 +137,22 @@ export default function Header({ handleScroll }: Props) {
               Projects
             </button>
           </Link>
+          <div className="flex md:flex-row md:items-center mt-10">
+            <SocialIcon
+              url="https://github.com/akeva001"
+              target="_blank"
+              fgColor="gray"
+              bgColor="transparent"
+              className="transform transition-all hover:scale-125 mx-3"
+            />
+            <SocialIcon
+              url="https://www.linkedin.com/in/alexkevakian/"
+              target="_blank"
+              fgColor="gray"
+              bgColor="transparent"
+              className="transform transition-all hover:scale-125 mx-3"
+            />
+          </div>
         </div>
       </motion.div>
 
