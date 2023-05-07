@@ -24,6 +24,29 @@ export default function Header({ handleScroll }: Props) {
         className="flex flex-row items-center"
       >
         <div className="hidden md:flex md:flex-row md:items-center">
+          <SocialIcon
+            url="https://github.com/akeva001"
+            target="_blank"
+            fgColor="gray"
+            bgColor="transparent"
+            className="transform transition-all hover:scale-125"
+          />
+          <SocialIcon
+            url="https://www.linkedin.com/in/alexkevakian/"
+            target="_blank"
+            fgColor="gray"
+            bgColor="transparent"
+            className="transform transition-all hover:scale-125"
+          />
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5 }}
+        className="flex flex-row items-center"
+      >
+        <div className="hidden md:flex md:flex-row md:items-center">
           <Link href="#about" onClick={handleScroll}>
             <button className="headerButton">About</button>
           </Link>
@@ -130,9 +153,9 @@ export default function Header({ handleScroll }: Props) {
           bgColor="transparent"
         /> */}
         <Link href="#contact" onClick={handleScroll}>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center transform transition-all hover:scale-110">
             <div>
-              <img src="./mail.svg" className="cursor-pointer w-6 mx-3" />
+              <img src="./mail.svg" className="cursor-pointer w-5 mx-3" />
             </div>
 
             <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
