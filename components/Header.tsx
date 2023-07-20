@@ -38,6 +38,17 @@ export default function Header({ handleScroll }: Props) {
             bgColor="transparent"
             className="transform transition-all hover:scale-125"
           />
+
+          <Link
+            href="https://drive.google.com/file/d/1QO431HTGrhkIBjyOK7qS8xTMqW7-sJ8r/view?usp=sharing"
+            target="_blank"
+          >
+            <div className="flex justify-center items-center transform transition-all hover:scale-125">
+              <div>
+                <img src="./resume.svg" className="cursor-pointer w-7 mx-3" />
+              </div>
+            </div>
+          </Link>
         </div>
       </motion.div>
       <motion.div
