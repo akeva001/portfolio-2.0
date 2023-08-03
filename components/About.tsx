@@ -41,14 +41,14 @@ function About({ pageInfo }: Props) {
           background
         </h4> */}
           <p className="text-base hidden md:block">
-            {pageInfo.backgroundInformation.split(". ").slice(0, 4).join(". ") +
+            {pageInfo.backgroundInformation.split(". ").slice(0, 5).join(". ") +
               ". "}
           </p>
           <p className="text-base hidden md:block">
-            {pageInfo.backgroundInformation.split(". ").slice(4).join(". ")}
+            {pageInfo.backgroundInformation.split(". ").slice(5).join(". ")}
           </p>
           <p className="text-base md:hidden">
-            {pageInfo.backgroundInformation.split(". ").slice(0, 4).join(". ") +
+            {pageInfo.backgroundInformation.split(". ").slice(0, 5).join(". ") +
               ". "}
           </p>
         </div>
