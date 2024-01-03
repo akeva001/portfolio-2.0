@@ -129,15 +129,17 @@ function ExperienceCard({ experience }: Props) {
                 })}
           </p>
         </div>
-        <div className="justify-center items-center md:w-3/5 lg:ml-10 hidden md:flex">
-          <ul className="list-disc space-y-3 ml-5 text-md">
-            {experience.points.map((point, i) => (
-              <li key={i}> {point}</li>
-            ))}
-          </ul>
-        </div>
+        {experience.points && experience.points.length > 0 && (
+          <div className="justify-center items-center md:w-3/5 lg:ml-10 hidden md:flex">
+            <ul className="list-disc space-y-3 ml-5 text-md">
+              {experience.points.map((point, i) => (
+                <li key={i}> {point}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-        {showDetails && (
+        {showDetails && experience.points && experience.points.length > 0 && (
           <ul className="flex flex-col list-disc space-y-2 ml-5 pr-5 text-md w-full md:hidden">
             {experience.points.map((point, i) => (
               <li key={i}> {point}</li>
