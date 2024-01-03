@@ -81,7 +81,13 @@ function ExperienceCard({ experience }: Props) {
               : "md:w-full"
           } hidden md:block`}
         >
-          <div className="relative flex justify-center md:justify-start mb-3">
+          <div
+            className={`relative flex ${
+              experience.points && experience.points.length > 0
+                ? "justify-start"
+                : "justify-center"
+            } mb-3`}
+          >
             <motion.div
               initial={{
                 y: -100,
