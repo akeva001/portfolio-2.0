@@ -74,7 +74,13 @@ function ExperienceCard({ experience }: Props) {
             </p>
           </div>
         )}
-        <div className="mx-5 md:mx-0 md:w-1/2 md:mt-5 md:pr-5 hidden md:block">
+        <div
+          className={`mx-5 md:mx-0 md:mt-5 md:pr-5 ${
+            experience.points && experience.points.length > 0
+              ? "md:w-1/2"
+              : "md:w-full"
+          } hidden md:block`}
+        >
           <div className="relative flex justify-center md:justify-start mb-3">
             <motion.div
               initial={{
